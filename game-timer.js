@@ -402,6 +402,9 @@ const speakerIconElement = document.getElementById("speakerIcon");
 const arrowLeft = document.getElementById("arrowLeft");
 const arrowRight = document.getElementById("arrowRight");
 
+const tenSecondsAudio = document.getElementById("tenSeconds");
+const twentySecondsAudio = document.getElementById("twentySeconds");
+
 const SPEAKER_MUTE = "bi bi-volume-mute";
 const SPEAKER_VOL_HIGH = "bi bi-volume-up";
 const SPEAKER_VOL_LOW = "bi bi-volume-down";
@@ -573,6 +576,8 @@ clock = new RealClock();
 
 beepAudio.volume = volume
 respawnAudio.volume = volume;
+tenSecondsAudio.volume = volume;
+twentySecondsAudio.volume = volume;
 
 speakerIconElement.classList = SPEAKER_MUTE;
 
