@@ -173,12 +173,12 @@ let fontSizeJumpedRespawn = parseFloat(localStorage.getItem("fontSizeJumpedRespa
 let fontSizeRespawnInterval = parseFloat(localStorage.getItem("fontSizeRespawnInterval")) || 1;
 let updateRate = parseInt(localStorage.getItem("updateRate")) || 1000;
 let soundToggles = [
-    (localStorage.getItem("sound0") == "true"),
-    (localStorage.getItem("sound1") == "true"),
-    (localStorage.getItem("sound2") == "true"),
-    (localStorage.getItem("sound3") == "true"),
-    (localStorage.getItem("sound10") == "true"),
-    (localStorage.getItem("sound20") == "true"),
+    (localStorage.getItem("sound0") != null ? (localStorage.getItem("sound0") == "true") : true),
+    (localStorage.getItem("sound1") != null ? (localStorage.getItem("sound1") == "true") : true),
+    (localStorage.getItem("sound2") != null ? (localStorage.getItem("sound2") == "true") : true),
+    (localStorage.getItem("sound3") != null ? (localStorage.getItem("sound3") == "true") : true),
+    (localStorage.getItem("sound10") != null ? (localStorage.getItem("sound10") == "true") : true),
+    (localStorage.getItem("sound20") != null ? (localStorage.getItem("sound20") == "true") : true),
 ]
 
 function formatTime(seconds) {
