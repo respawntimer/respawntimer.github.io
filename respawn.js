@@ -27,7 +27,7 @@ const RESPAWN_TIMES = [
 
 const RESPAWN_INTERVALS = [20, 28, 36, 44, 52, 60];
 
-const PHASE_TIMES = [1500, 1184, 860, 550, 290, 50];
+const PHASE_TIMES = [1500, 1182, 858, 550, 290, 50];
 
 const MODE1_STAGES = {
     PREP_START: 2700,
