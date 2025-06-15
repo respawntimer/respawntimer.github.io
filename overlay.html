@@ -13,7 +13,7 @@
 
         .safe-container {
             position: absolute;
-            inset: 20px;
+            inset: 2px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -40,7 +40,7 @@
         }
 
         .bottom-row {
-            gap: 2rem;
+            gap: .25rem;
             white-space: nowrap;
         }
     </style>
@@ -55,13 +55,13 @@
         </div>
         <!-- Top Row -->
         <div class="top-row">
-            <div id="timeRemaining" class="scalable-text font-bold">Top Label</div>
+            <div id="timeRemaining" class="scalable-text font-bold">0:00</div>
         </div>
 
         <!-- Bottom Row -->
         <div class="bottom-row">
-            <div id="normalRespawn" class="scalable-text font-bold">Bottom Left</div>
-            <div id="jumpedRespawn" class="scalable-text font-bold">Bottom Right</div>
+            <div id="normalRespawn" class="scalable-text font-bold">0:00</div>
+            <div id="jumpedRespawn" class="scalable-text font-bold">0:00</div>
         </div>
     </div>
     <script type="module" src="overlay.js"></script>
