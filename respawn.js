@@ -401,7 +401,7 @@ function SetUpEventListeners() {
     captureButtonB.addEventListener('click', event => { OnCaptureButtonClicked(event.target); });
     captureButtonC.addEventListener('click', event => { OnCaptureButtonClicked(event.target); });
     soundSlider.addEventListener('input', OnVolumeSliderChanged);
-
+    document.getElementById("openOverlay").addEventListener('click', () => { window.location.href = './overlay.html' });
 }
 // -----------------------------------------------------------------------------
 // MVC
