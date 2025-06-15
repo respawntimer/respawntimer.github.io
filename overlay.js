@@ -38,15 +38,18 @@ const normalRespawnElement = document.getElementById("normalRespawn");
 const jumpedRespawnElement = document.getElementById("jumpedRespawn");
 const stageElement = document.getElementById("stage");
 
+
 function formatTime(seconds) {
     const minutesRemaining = Math.floor(seconds / 60);
     const secondsRemaining = seconds % 60;
     return `${minutesRemaining}:${secondsRemaining.toString().padStart(2, '0')}`;
 }
+
 function capitalizeFirst(str) {
     if (!str) return ''; // Handle empty or undefined strings
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
+
 function updateDisplay() {
     if (gameTimer.getStage() === STAGES.WAR) {
         normalRespawnElement.textContent = formatTime(respawmTimer.getTimeToNormalRespawn());
@@ -67,7 +70,14 @@ function update() {
     caller.update();
 }
 
+function OnKeyDown(event) {
+    if (event.key === 'ArrowLeft') {
+        clock.nudge(-1);
+    } else if (event.key === 'ArrowRight') {
+        clock.nudge(-1);
+    }
+}
 
-
+window.addEventListener('keydown', OnKeyDown);
 setInterval(update, updateRate);
 update();
