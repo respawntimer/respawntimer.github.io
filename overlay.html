@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>No Min Size Scroll-Free Layout</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .scalable-text {
+            font-size: clamp(0.1rem, 6vw, 4rem);
+        }
+
+        .safe-container {
+            position: absolute;
+            inset: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+            /* prevents scrollbars */
+        }
+
+        .top-row,
+        .bottom-row {
+            flex: 1 1 0%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-row {
+            flex: 0 0 auto;
+            font-size: 0.875rem;
+            /* Tailwind's text-sm */
+            color: #cbd5e1;
+            /* Tailwind's slate-300 */
+            margin-bottom: 0.5rem;
+        }
+
+        .bottom-row {
+            gap: 2rem;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 text-white h-screen w-screen overflow-hidden">
+
+    <div class="safe-container">
+        <!-- Header Row: Small Text -->
+        <div id="stage" class="header-row">
+
+        </div>
+        <!-- Top Row -->
+        <div class="top-row">
+            <div id="timeRemaining" class="scalable-text font-bold">Top Label</div>
+        </div>
+
+        <!-- Bottom Row -->
+        <div class="bottom-row">
+            <div id="normalRespawn" class="scalable-text font-bold">Bottom Left</div>
+            <div id="jumpedRespawn" class="scalable-text font-bold">Bottom Right</div>
+        </div>
+    </div>
+    <script type="module" src="overlay.js"></script>
+
+</body>
+
+</html>
