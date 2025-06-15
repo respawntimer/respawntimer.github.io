@@ -37,12 +37,18 @@ const timeRemainingElement = document.getElementById("timeRemaining");
 const normalRespawnElement = document.getElementById("normalRespawn");
 const jumpedRespawnElement = document.getElementById("jumpedRespawn");
 const stageElement = document.getElementById("stage");
-
+const nudgeElement = document.getElementById("nudge");
 
 function formatTime(seconds) {
     const minutesRemaining = Math.floor(seconds / 60);
     const secondsRemaining = seconds % 60;
     return `${minutesRemaining}:${secondsRemaining.toString().padStart(2, '0')}`;
+}
+
+function formatAdjustmentTime(seconds) {
+    const formattedTime = formatTime(Math.abs(seconds));
+    const sign = seconds >= 0 ? "+" : "-";
+    return sign + formattedTime;
 }
 
 function capitalizeFirst(str) {
@@ -60,6 +66,7 @@ function updateDisplay() {
     }
     stageElement.textContent = capitalizeFirst(gameTimer.getStage());
     timeRemainingElement.textContent = formatTime(gameTimer.getTimeRemainingInStage());
+    nudgeElement.textContent = formatAdjustmentTime(clock.getAdjustment());
 }
 
 function update() {
@@ -74,7 +81,9 @@ function OnKeyDown(event) {
     if (event.key === 'ArrowLeft') {
         clock.nudge(-1);
     } else if (event.key === 'ArrowRight') {
-        clock.nudge(-1);
+        clock.nudge(1);
+    } else if (event.key === 'ArrowDown') {
+        clock.nudge(-clock.getAdjustment());
     }
 }
 
