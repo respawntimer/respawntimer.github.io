@@ -353,9 +353,6 @@ function OnRecordClicked() {
     }
 }
 
-export async function onOpenCvReady() {
-    window.cv = await window.cv;
-}
 
 function OnCaptureButtonClicked(target) {
     const isCapped = target.classList.contains('btn-primary')
@@ -600,13 +597,3 @@ updateSimpleUI();
 SetUpEventListeners();
 setInterval(update, updateRate);
 update(); // Initialize immediately
-
-const loadOpenCvScript = () => {
-    const script = document.createElement('script');
-    script.src = './static/scripts/opencv.js'; // Adjust path to opencv.js
-    script.onload = onOpenCvReady;  // This will now call onOpenCvReady once opencv.js is loaded
-    document.body.appendChild(script);
-};
-
-// Call the function to load OpenCV.js
-window.onOpenCvReady = onOpenCvReady;
